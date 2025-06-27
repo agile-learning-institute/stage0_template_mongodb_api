@@ -7,7 +7,7 @@ FROM ghcr.io/agile-learning-institute/stage0_mongodb_api:latest
 # ENV AUTO_PROCESS=false
 # ENV EXIT_AFTER_PROCESSING=false
 # ENV LOAD_TEST_DATA=true
-# ENV MONGO_DB_NAME={{product}}
+# ENV MONGO_DB_NAME={{product_info.product}}
 # ENV MONGODB_API_PORT=8081
 
 # Copy files 

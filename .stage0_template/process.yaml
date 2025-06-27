@@ -5,8 +5,6 @@ version: "1.0"
 
 environment:
   SERVICE_NAME: The service domain name (e.g., mongodb)
-  PRODUCT: The product name (e.g., stage0)
-  ORGANIZATION: The organization (e.g., agile-learning-institute)
 
 context:
   - key: architecture
@@ -35,38 +33,20 @@ templates:
   # Collections
   - path: "./input/collections/collection.yaml.template"
     mergeFor:
-      items: data_catalog.dictionaries
-      output: "./input/collections/{{item.name}}.yaml"
-      context:
-        collection_name: "{{item.name}}"
-        collection_title: "{{item.title}}"
-        collection_description: "{{item.description}}"
-        collection_has_test_data: true
+      items: service.data.creates
+      output: "./input/collections/{{name}}.yaml"
 
   # Test Data
   - path: "./input/data/data.json.template"
     mergeFor:
-      items: data_catalog.dictionaries
-      output: "./input/data/{{item.name}}.1.0.0.1.json"
-      context:
-        collection_name: "{{item.name}}"
-        collection_sample_data: "{{item.sample_data}}"  # If available
+      items: service.data.creates
+      output: "./input/data/{{name}}.1.0.0.1.json"
 
   # Dictionaries
   - path: "./input/dictionary/dictionary.yaml.template"
     mergeFor:
       items: data_catalog.dictionaries
-      output: "./input/dictionary/{{item.name}}.1.0.0.yaml"
-      context:
-        dictionary_content: "{{item.content}}"
-
-  # Types
-  - path: "./input/dictionary/types/type.yaml.template"
-    mergeFor:
-      items: specifications.dictionaries.types
-      output: "./input/dictionary/types/{{item.name}}.yaml"
-      context:
-        type_content: "{{item.content}}"
+      output: "./input/dictionary/{{name}}.1.0.0.yaml"
 
   # Infrastructure
   - path: "./docker-compose.yaml"

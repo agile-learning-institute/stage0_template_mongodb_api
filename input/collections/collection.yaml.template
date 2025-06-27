@@ -1,6 +1,7 @@
-title: {{collection_title}}
-description: {{collection_description}}
-name: {{collection_name}}
+# Debug: {{item}}
+title: {{name}} Collection
+description: Collection for managing {{name}} data
+name: {{name}}
 versions:
   - version: "1.0.0.1"
     add_indexes:
@@ -14,6 +15,4 @@ versions:
           last_saved.at_time: 1
         options:
           unique: false
-{% if collection_has_test_data %}
-    test_data: {{collection_name}}.1.0.0.1.json
-{% endif %} 
+    test_data: {{name}}.1.0.0.1.json 

@@ -11,7 +11,7 @@ test:
 # Build and run the Docker container
 prod:
 	make down
-	docker build --tag ghcr.io/{{organization}}/{{product}}_mongo_api:latest .
+	docker build --tag ghcr.io/{{product_info.organization}}/{{product_info.product}}_mongo_api:latest .
 	docker compose --profile prod up --detach
 	# docker compose logs -f "mongo_api"
 

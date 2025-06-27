@@ -1,6 +1,6 @@
-# {{product}} Mongo API
+# {{product_info.product}} Mongo API
 
-This is a mongoDB Configuration API, based on the [stage0_mongodb_api](https://github.com/agile-learning-institute/stage0_mongodb_api) utility. It provides a versioned configuration as code utility for the {{product}} product. 
+This is a mongoDB Configuration API, based on the [stage0_mongodb_api](https://github.com/agile-learning-institute/stage0_mongodb_api) utility. It provides a versioned configuration as code utility for the {{product_info.product}} product. 
 
 <!-- TEMPLATE_SPECIFIC_START -->
 <!-- This section will be removed during template processing -->
@@ -58,6 +58,6 @@ make down
 ## Reference Information
 - [Open API Specifications](./docs/openapi.yaml) for this API
 - [API curl examples](https://github.com/agile-learning-institute/stage0_mongodb_api/blob/main/CONTRIBUTING.md#curl-examples) if you want to do CLI based testing.
-- [Simple Schema standards](https://github.com/{{organization}}/{{product}}/blob/main/SIMPLE_SCHEMA.md) to understand the schema language used. 
+- [Simple Schema standards](https://github.com/{{product_info.organization}}/{{product_info.product}}/blob/main/SIMPLE_SCHEMA.md) to understand the schema language used. 
 - [MongoDB Utility Reference](https://github.com/agile-learning-institute/stage0_mongodb_api/blob/main/REFERENCE.md) has configuration details.
-- [{{product}} Data Catalog](https://github.com/{{organization}}/{{product}}/blob/main/specifications/data_catalog.yaml) that initialized this repo.
+- [{{product_info.product}} Data Catalog](https://github.com/{{product_info.organization}}/{{product_info.product}}/blob/main/specifications/data_catalog.yaml) that initialized this repo.
