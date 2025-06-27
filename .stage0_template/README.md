@@ -62,31 +62,79 @@ The template will use:
 - **Product Info**: From `product.yaml` (name, description, organization)
 - **Data Dictionaries**: From `dictionaries/` folder matching the service's data sources
 
-## Revised Template Harvesting Plan
+## Detailed Template Harvesting Plan
 
-### Phase 1: Create Template Structure
-- [ ] Create `process.yaml` with proper context mappings
-- [ ] Set up environment variables: `SERVICE_NAME`, `DATA_SOURCE`, `ENVIRONMENT`
-- [ ] Define required specifications: product info, service domain, data dictionaries
-- [ ] Create test data and expected output folders
+### Phase 1: File Consolidation and Generic Templates
+- [ ] **Identify duplicate files** that will be generated from single templates
+- [ ] **Delete duplicates** and create generic template files with descriptive names
+- [ ] **Collection templates**: Create `collection.yaml.template` for all collection configs
+- [ ] **Data templates**: Create `data.json.template` for all test data files
+- [ ] **Dictionary templates**: Create `dictionary.yaml.template` for all dictionary files
 
-### Phase 2: Template the Configuration Files
-- [ ] Convert collection YAML files to Jinja2 templates using `service.data.creates`
-- [ ] Template data dictionary files using specifications dictionaries
-- [ ] Create dynamic test data generation from enumerators
-- [ ] Template Docker infrastructure with environment-specific configurations
+### Phase 2: Template Variable Identification and Replacement
+- [ ] **Basic transformations**:
+  - Replace `agile-learning-institute` with `{{organization}}`
+  - Replace `stage0` with `{{product}}`
+- [ ] **Collection configuration templates**:
+  - Iterate over `data_catalog.dictionaries` to generate collection configs
+  - Template collection names, descriptions, and test data references
+- [ ] **Dictionary file processing**:
+  - Copy all dictionaries from specifications as-is
+  - Add `.1.0.0` version suffix to filenames
+  - Template organization and product references
+- [ ] **Types directory**: Copy all types as-is (no templating needed)
 
-### Phase 3: Environment Configuration
-- [ ] Map service domain configuration to template context
-- [ ] Use environment-specific backing service configurations
-- [ ] Set up validation for required data dictionaries
-- [ ] Configure template processing for multiple environments
+### Phase 3: Infrastructure and Documentation Templating
+- [ ] **Docker files**: Template organization and product references
+- [ ] **Makefile**: Template service names and ports
+- [ ] **README.md**: 
+  - Add template-specific text that gets removed during processing
+  - Template organization and product references
+  - Add references to template README that get cleaned up
+- [ ] **Documentation**: Template API docs and OpenAPI specs
 
-### Phase 4: Testing and Validation
-- [ ] Create test specifications matching Stage0 structure
-- [ ] Set up expected output files for each service type
-- [ ] Test template processing with different service configurations
-- [ ] Validate generated configurations work with MongoDB API
+### Phase 4: Process Configuration and Testing
+- [ ] **Create `process.yaml`** with proper context mappings
+- [ ] **Environment variables**: `SERVICE_NAME`, `DATA_SOURCE`, `ENVIRONMENT`
+- [ ] **Template processing rules**:
+  - Single file merges for infrastructure files
+  - `mergeFor` loops for collections based on `data_catalog.dictionaries`
+  - `mergeFor` loops for test data files
+- [ ] **Test data setup**: Create specifications structure for testing
+- [ ] **Expected output**: Generate expected files for validation
+
+## File Transformation Details
+
+### Collection Configuration Files
+**Template**: `input/collections/collection.yaml.template`
+**Generation**: One file per dictionary in `data_catalog.dictionaries`
+**Variables**:
+- `{{collection_name}}` - Dictionary name
+- `{{collection_title}}` - Dictionary title
+- `{{collection_description}}` - Dictionary description
+- `{{test_data_file}}` - Generated test data filename
+
+### Data Dictionary Files
+**Source**: `specifications/dictionaries/*.yaml`
+**Destination**: `input/dictionary/{{dictionary_name}}.1.0.0.yaml`
+**Transformations**:
+- Replace organization references
+- Replace product references
+- Keep all schema definitions intact
+
+### Test Data Files
+**Template**: `input/data/data.json.template`
+**Generation**: One file per dictionary in `data_catalog.dictionaries`
+**Variables**:
+- `{{collection_name}}` - Dictionary name
+- `{{sample_data}}` - Generated sample data based on schema
+
+### Infrastructure Files
+**Files to template**:
+- `docker-compose.yaml` - Organization and product references
+- `Dockerfile` - Organization references
+- `makefile` - Service-specific configurations
+- `README.md` - Organization, product, and template references
 
 ## Template Usage
 

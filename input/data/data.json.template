@@ -1,0 +1,6 @@
+[
+{% if collection_sample_data %}
+{{collection_sample_data}}
+{% else %}
+]
+{% endif %} 

@@ -57,10 +57,10 @@ services:
         condition: service_started
 
   #######################################
-  # Stage0 MongoDB production like service
+  # {{organization}} MongoDB production like service
   #######################################
   mongo_api:
-    image: ghcr.io/agile-learning-institute/stage0_mongo_api:latest
+    image: ghcr.io/{{organization}}/{{product}}_mongo_api:latest
     restart: no
     ports:
       - 8081:8081
