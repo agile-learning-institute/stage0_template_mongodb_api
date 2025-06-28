@@ -1,6 +1,12 @@
-# stage0 Mongo API
+<!-- TEMPLATE_SPECIFIC_START -->
+<!-- This section will be removed during template processing -->
+## This is a Stage0 Template Merge Repo
+This repository is a template to create a custom mongodb_api for your system.
+For template usage instructions, see the [template README](.stage0_template/README.md).
+<!-- TEMPLATE_SPECIFIC_END -->
+# floppy Mongo API
 
-This is a mongoDB Configuration API, based on the [stage0_mongodb_api](https://github.com/agile-learning-institute/stage0_mongodb_api) utility. It provides a versioned configuration as code utility for the stage0 product. 
+This is a mongoDB Configuration API, based on the [stage0_mongodb_api](https://github.com/agile-learning-institute/stage0_mongodb_api) utility. It provides a versioned configuration as code utility for the floppy product. 
 
 ## Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose)
@@ -51,6 +57,6 @@ make down
 ## Reference Information
 - [Open API Specifications](./docs/openapi.yaml) for this API
 - [API curl examples](https://github.com/agile-learning-institute/stage0_mongodb_api/blob/main/CONTRIBUTING.md#curl-examples) if you want to do CLI based testing.
-- [Simple Schema standards](https://github.com/agile-learning-institute/stage0/blob/main/SIMPLE_SCHEMA.md) to understand the schema language used. 
+- [Simple Schema standards](https://github.com/some-test-org/floppy/blob/main/SIMPLE_SCHEMA.md) to understand the schema language used. 
 - [MongoDB Utility Reference](https://github.com/agile-learning-institute/stage0_mongodb_api/blob/main/REFERENCE.md) has configuration details.
-- [stage0 Data Catalog](https://github.com/agile-learning-institute/stage0/blob/main/specifications/data_catalog.yaml) that initialized this repo.
+- [floppy Data Catalog](https://github.com/some-test-org/floppy/blob/main/specifications/data_catalog.yaml) that initialized this repo.
