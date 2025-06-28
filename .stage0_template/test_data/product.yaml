@@ -1,8 +1,6 @@
-$schema: "https://agile-learning.institute/stage0/schemas/architecture.schema.yaml"
-$id: "https://agile-learning-institute/stage0/specifications/architecture.yaml"
-organization: agile-learning-institute
-organization_name: the Agile Learning Institute
-product: stage0
-product_name: Stage Zero
-product_description: Stage Zero is a software platform that uses Artificial Intelligence and Human Centered Design techniques to capture design specifications in a technology agnostic manner, and then combines those specifications with a set of technology specific templates to generate code and deploy a minimally functional prototype.
-product_url: https://github.com/agile-learning-institute/stageZero 
+organization: some-test-org
+organization_name: A long description of the organization
+product: floppy
+product_name: Floppy Fish
+product_description: Fish that can flop around
+product_url: https://github.com/some-test-org/floppy

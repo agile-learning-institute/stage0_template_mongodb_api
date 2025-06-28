@@ -1,0 +1,7 @@
+# Type: sentence
+title: Sentence
+description: A sentence of text
+type: string
+max_length: 500
+min_length: 1
+ 

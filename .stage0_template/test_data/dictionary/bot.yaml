@@ -1,4 +1,4 @@
-title: Bots
+title: bot
 description: Stage0 Bots
 type: object
 properties:
@@ -23,11 +23,3 @@ properties:
   last_saved:
     description: Last Saved breadcrumb
     type: breadcrumb
-required:
-  - _id
-  - status
-  - name
-  - description
-  - channels
-  - last_saved
-additional_properties: false 

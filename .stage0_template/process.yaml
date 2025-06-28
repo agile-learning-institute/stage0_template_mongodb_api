@@ -30,31 +30,31 @@ requires:
   - data_catalog.dictionaries
 
 templates:
-  # Collections
-  - path: "./input/collections/collection.yaml.template"
-    mergeFor:
-      items: service.data.creates
-      output: "./input/collections/{{name}}.yaml"
-
-  # Test Data
-  - path: "./input/data/data.json.template"
-    mergeFor:
-      items: service.data.creates
-      output: "./input/data/{{name}}.1.0.0.1.json"
-
-  # Dictionaries
-  - path: "./input/dictionary/dictionary.yaml.template"
-    mergeFor:
-      items: data_catalog.dictionaries
-      output: "./input/dictionary/{{name}}.1.0.0.yaml"
-
-  # Infrastructure
-  - path: "./docker-compose.yaml"
-    merge: true
-  - path: "./Dockerfile"
+  - path: "./README.md"
     merge: true
   - path: "./makefile"
     merge: true
-  - path: "./README.md"
+  - path: "./Dockerfile"
+    merge: true
+  - path: "./docker-compose.yaml"
+    merge: true
+  - path: "./input/data/enumerators.json"
     merge: true
 
+  # Collections from data_catalog
+  - path: "./input/collections/collection.yaml.template"
+    mergeFor:
+      items: data_catalog.dictionaries
+      output: "./input/collections/{{name}}.yaml"
+
+  # Dictionaries from specifications.dictionary
+  - path: "./input/dictionary/dictionary.yaml.template"
+    mergeFor:
+      items: specifications.dictionary
+      output: "./input/dictionary/{{name}}.1.0.0.yaml"
+
+  # Types - process each type file individually
+  - path: "./input/dictionary/types/type.yaml.template"
+    mergeFor:
+      items: specifications.types
+      output: "./input/dictionary/types/{{name}}.yaml"

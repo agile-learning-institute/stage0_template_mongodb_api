@@ -57,10 +57,10 @@ services:
         condition: service_started
 
   #######################################
-  # {{product_info.product}} MongoDB production like service
+  # floppy MongoDB production like service
   #######################################
   mongo_api:
-    image: ghcr.io/{{product_info.organization}}/{{product_info.product}}_mongodb_api:latest
+    image: ghcr.io/some-test-org/floppy_mongodb_api:latest
     restart: no
     ports:
       - 8081:8081
@@ -90,4 +90,3 @@ services:
     depends_on:
       mongo_api:
         condition: service_started
-

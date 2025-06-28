@@ -1,1 +1,1 @@
-{{item}} 
+{{item.content | to_yaml}} 

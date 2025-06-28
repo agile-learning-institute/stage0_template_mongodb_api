@@ -16,6 +16,10 @@ rm -rf ~/tmp/testRepo
 mkdir -p ~/tmp/testRepo 
 cp -r . ~/tmp/testRepo
 
+# Debug: Show specifications structure
+echo "Debug: Checking specifications structure..."
+find .stage0_template/test_data -name "*.yaml" | head -10
+
 # Run the container
 echo "Running the container..."
 LOG_LEVEL="${LOG_LEVEL:-INFO}"
